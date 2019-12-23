@@ -1,0 +1,71 @@
+"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" E:\c\chatting
+-- The C compiler identification is GNU 5.1.0
+-- The CXX compiler identification is GNU 5.1.0
+-- Check for working C compiler: C:/TDM-GCC-64/bin/gcc.exe
+-- Check for working C compiler: C:/TDM-GCC-64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: C:/TDM-GCC-64/bin/g++.exe
+-- Check for working CXX compiler: C:/TDM-GCC-64/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- 褰撳墠鐨勬枃浠跺垪琛ㄦ槸=start.cvendor/json/cJSON.c
+-- SOURCE_PATH=E:/c/chatting/vendor/
+CMake Warning (dev) at CMakeLists.txt:17 (target_link_libraries):
+  Policy CMP0023 is not set: Plain and keyword target_link_libraries
+  signatures cannot be mixed.  Run "cmake --help-policy CMP0023" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  The plain signature for target_link_libraries has already been used with
+  the target "chat".  All uses of target_link_libraries with a target should
+  be either all-keyword or all-plain.
+
+  The uses of the plain signature are here:
+
+   * CMakeLists.txt:16 (target_link_libraries)
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at CMakeLists.txt:18 (target_link_libraries):
+  Policy CMP0023 is not set: Plain and keyword target_link_libraries
+  signatures cannot be mixed.  Run "cmake --help-policy CMP0023" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  The keyword signature for target_link_libraries has already been used with
+  the target "chat".  All uses of target_link_libraries with a target should
+  be either all-keyword or all-plain.
+
+  The uses of the keyword signature are here:
+
+   * CMakeLists.txt:17 (target_link_libraries)
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.13)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+Please set them or make sure they are set and tested correctly in the CMake files:
+LIBMYSQLCLIENT
+    linked by target "chat" in directory E:/c/chatting
+
+-- Configuring incomplete, errors occurred!
+See also "E:/c/chatting/cmake-build-debug/CMakeFiles/CMakeOutput.log".

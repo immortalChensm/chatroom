@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/common.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" >
+    <meta name="referrer" content="no-referrer" />
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/jquery-3.4.1.min.js" ></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js" ></script>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        #waitLogin{
+            border:1px solid #607578;
+            background: red;
+            color: whitesmoke;
+            height:250px;
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            line-height: 200%;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+        .loginError{
+            border:1px solid #607578;
+            background: red;
+            color: whitesmoke;
+            height:250px;
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            line-height: 200%;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+        #left,#right{
+            padding: 0px;
+            margin: 0px;
+            border-top: 1px solid #1E262B;
+        }
+        #bottom{
+            text-align: left;
+            text-indent: 10px;
+            color: yellow;
+            font-weight: bold;
+        }
+        #main{
+            border: 1px solid #56696C;
+            padding: 0;
+        }
+        #topPanel{
+
+        }
+        .row{
+            width: 100%;
+        }
+        #top{
+            height: 30px;
+            color: #A7CBCD;
+            width: 100%;
+        }
+        #min{
+            height: 20px;
+            border-top: 1px solid #1E262B;
+        }
+        .container-fluid{
+            background: #05080D;
+        }
+        #time{
+            color: #9FC1C3;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+        #date,#location,#user,#bio{
+            border-top: 1px solid #1E262B;
+            padding: 0px;
+            margin: 0px 0px 0px 15px;
+        }
+        #date .year,#date .startTime,#date .platform{
+            color: #3E4C50;
+            font-weight: bold;
+            text-align: center;
+        }
+        #date .dateItem,#date .startTimeItem,#date .platformItem{
+
+        }
+        #date .yearValue,#date .startTimeValue,#date .platformValue{
+            color: #8FADB0;
+            text-align: center;
+        }
+        #location{
+            color: #A6C8CA;
+            font-size: 13px;
+            padding: 0px;
+            background: red;
+        }
+        #location p{
+            padding: 0px 0px 0px 15px;
+            background: black;
+        }
+        #location p span{
+            text-align: left;
+            float: right;
+        }
+        .headImg{
+            text-align: center;
+        }
+        #user div,#bio{
+            padding: 0px 0px 0px 15px;
+            color: #A6C8CA;
+            font-size: 15px;
+        }
+        #user div span{
+            text-align: left;
+            float: right;
+        }
+        #mainMenu{
+            list-style-type: none;
+            border-bottom: 1px solid #586C6F;
+            height:25px;
+            margin:0px 0px 0px 16px;
+            padding:0px;
+            width:100%;
+        }
+        #menuContent{
+            width: 100%;
+            list-style-type: none;
+        }
+        #menuContent li.outer{
+            width: 100%;
+            display: none;
+        }
+        #mainMenu li{
+            float: left;
+            width: 25%;
+            margin:0px;
+            padding:2px;
+            border-right: 1px solid #586C6F;
+            color: #99ABA3;
+            text-align: center;
+            height:25px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+        #mainMenu li.active{
+            background: #ABCFD1;
+            color: #0E1521;
+        }
+        #chatList{
+            overflow-y: auto;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        #chatList ul{
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        #chatList ul span{
+            display: block;
+        }
+        #chatList ul span.userName{
+            color: #9FC4C7;
+            font-weight: bold;
+        }
+        #chatList ul span.userWord{
+            padding:10px 0px 10px 0px;
+            text-indent: 10px;
+        }
+        #user{
+            position: relative;
+        }
+        div#inputWord{
+            height:130px;
+            background: red;
+            width:100%;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            margin:0px;
+            border-top: 1px solid #56696C;
+        }
+        div#inputWord textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #05080D;
+            font-weight: bold;
+            text-indent: 5px;
+            color: #ABCFD1;
+            font-size: 15px;
+            padding: 3px;
+        }
+        #friends{
+            list-style-type: none;
+            margin:20px auto;
+        }
+        #friends li{
+
+            text-align: center;
+            color: yellow;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .member{
+            font-weight: bold;
+            color: yellow;
+            text-align: center;
+            padding:2px 0px;
+            border-bottom: 1px solid #56696C;
+        }
+        .searchMusic{
+            margin: 10px auto;
+        }
+
+        .musicResultList li{
+            list-style-type: none;
+            margin: 0px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid" id="panel">
+    <div class="row" id="topPanel">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="top">
+            [<span style="color:#6E7E70;font-size: 20px;font-weight: bold">CHATROOM</span>] Control Panel System--[Author:<span style="color: #1b6d85">勺颠颠</span>] [copyright:<span style="color: yellow">1655664358@qq.com</span>]
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="min">
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="left">
+
+            <div class="row" >
+                <div id="time">init...</div>
+            </div>
+            <div class="row" >
+                <div id="date">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="dateItem"><span class="year">init...</span><br/><span class="yearValue">init...<br/>init...</span></div></div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="startTimeItem"><span class="startTime">UPTIME</span><br/><span class="startTimeValue">init...</span></div></div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="platformItem"><span class="platform">PLATFORM</span><br/><span class="platformValue">init...</span></div></div>
+                </div>
+            </div>
+            <div class="row" >
+                <div id="location">
+                    <p>IP<span class="ip">init...</span></p>
+                    <p>CITY<span class="city">init...</span></p>
+                    <p>IDCARD<span class="idcard">init...</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="user">
+                    <!--<div class="headImg"><img src="https://avatars3.githubusercontent.com/u/35517798?v=4" style="width: 100px;height: 100px"/> </div>-->
+                    <div class="loginName">Name<span>init...</span></div>
+                    <div class="email">EMAIL<span>init...</span></div>
+                    <div class="repos">REPOS<span>init...</span></div>
+                    <div class="followers">FOLLOWERS<span>init...</span></div>
+                    <div class="following">FOLLOWING<span>init...</span></div>
+                    <div class="createDate">REG-TIME<span>init...</span></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="bio">init...</div>
+            </div>
+
+        </div>
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="main">
+            <div class="row" style="padding: 0px">
+                <ul id="mainMenu">
+                    <li class="active" data="chat">CHAT</li>
+                    <!--<li data="music">MUSIC</li>-->
+                    <!--<li data="ai">AI[RETARDED]</li>-->
+                    <!--<li data="spider">SPIDER</li>-->
+                </ul>
+            </div>
+            <div class="row">
+                <ul id="menuContent">
+                    <li class="outer" id="chat" style="display: block">
+                        <div id="chatList">
+                            <ul>
+                                <!--<li><span class="userName">[jackChen SAY][12:43:21]</span><span class="userWord">hi,everyone</span></li>-->
+                                <!--<li><span class="userName">[tony SAY][12:43:21]</span><span class="userWord">hi,everyone!I have been finish my work,so u can come here </span></li>-->
+                                <!--<li><span class="userName">[tom SAY][12:43:21]</span><span class="userWord">hi,everyone</span></li>-->
+                            </ul>
+                        </div>
+                        <div id="inputWord">
+                            <textarea placeholder="在这里输入...SHIFT+ENTER发送就可以随便瞎聊了...支持很骚的MarkDown语法聊天"></textarea>
+                        </div>
+                    </li>
+                    <li class="outer" id="music">
+                        <div id="musicList">
+                            <div class="searchMusic">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="musicKey" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-success musicBtn" type="button">Go!</button></span>
+                                </div><!-- /input-group -->
+                            </div>
+                            <ul class="musicResultList">
+                                <!--<li style="cursor: pointer">-->
+                                    <!--<div class="musicImg">-->
+                                        <!--<img  src="http://p2.music.126.net/PleRmGyK8ouRM6GMMzVnBw==/109951164090257965.jpg?param=300x300"/>-->
+                                    <!--</div>-->
+                                    <!--<div class="musicName">-->
+                                        <!--author&#45;&#45;title-->
+                                    <!--</div>-->
+                                    <!--<div class="musicLink">-->
+                                        <!--<audio class="feed_audio" src="http://music.163.com/song/media/outer/url?id=1366783302.mp3" controls></audio>-->
+                                    <!--</div>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="outer" id="ai">AI[RETARDED]</li>
+                    <li class="outer" id="spider">SPIDER</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="right">
+            <div class="member">MEMBER LIST</div>
+            <ul id="friends">
+                <!--<li>-->
+                    <!--<div class="headUrl" title="Tony">-->
+                        <!--<img style="width: 120px;height: 120px" src="https://gss0.bdstatic.com/70cFfyinKgQIm2_p8IuM_a/daf/pic/item/a8773912b31bb051ec146159397adab44aede08b.jpg"/>-->
+                    <!--</div>-->
+                    <!--<div class="nickname">Tony</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="bottom">
+        [INFO]--wait for just seconds
+    </div>
+</div>
+
+<script>
+    window.onerror=function(){return true;}
+</script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+
+    $(function () {
+
+        /*****************************music search*******************************/
+        // $(".musicBtn").click(function (e) {
+        //
+        //     if ($("#musicKey").val().length){
+        //         $.ajax({
+        //             type:'GET',
+        //             uri:"https://api.apiopen.top/searchMusic?name="+$("#musicKey").val(),
+        //             success:function (response) {
+        //
+        //                console.log(response);
+        //             },
+        //             error:function (error) {
+        //                 //alert("error");
+        //             }
+        //         });
+        //     }
+        // });
+
+        /****************************git login**************************/
+        ajax({
+            method:'GET',
+            uri:"api/git/login?code="+GetQueryString("code"),
+            async:true,
+            data:{
+                code:GetQueryString("code")
+            },
+            success:function (response) {
+                if (response&&response.code==200){
+                    $("body").attr("loginFlag",1);
+                    console.log(response);
+                    //console.log(JSON.parse(response.message));
+                    response = JSON.parse(response.message);
+                    $(".loginName span").text(response.login);
+                    $(".loginName span").attr("loginId",response.id);
+                    $(".email span").text(response.email);
+                    $(".repos span").text(response.public_repos);
+                    $(".followers span").text(response.followers);
+                    $(".following span").text(response.following);
+                    $(".createDate span").text(response.created_at);
+                    $("#bio").html(response.bio);
+                    $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>user profile init finish!</span>");
+
+                    sessionStorage.setItem("loginId",response.id);
+                    sessionStorage.setItem("loginAccount",response.login);
+                }else{
+                    window.location.href="login.html";
+                }
+            },
+            error:function (error) {
+                //alert("error");
+            }
+        });
+
+        function sendPrepareMsg(uri, data) {
+
+            if ($(".loginName span").attr("loginId")&&data.word){
+                return JSON.stringify({
+                    uri: "websocket/" + uri,
+                    data: data.word,
+                    account:sessionStorage.getItem("loginAccount"),
+                    loginId:sessionStorage.getItem("loginId"),
+                    start:data.start?data.start:0,
+                    count:data.count?data.count:10,
+                    code:data.code?data.code:3//1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                });
+            } else if ($(".loginName span").attr("loginId")&&data.word.length==0) {
+                return 0;
+            }else{
+                return -1;
+            }
+
+        }
+
+            /******************************业务处理**************************/
+            start();
+            var bower = uaMatch();
+            if (bower.version==100) {
+                $("#panel").html("<div class='row'><div class='loginError'>Error:your platform can't run!please upgrade </div></div>");
+            } else {
+                var size = getSize();
+                $("#topPanel").css("height", size.height * 0.9);
+                $("#left").css("height", size.height * 0.9);
+                $("#main").css("height", size.height * 0.9);
+                $("#right").css("height", size.height * 0.9);
+                $("#bottom").css("height", size.height * 0.1);
+
+                //启动时间
+                let date = new Date();
+                $(".startTimeValue").html(dateFormat("H:M:S", date));
+                $(".platformValue").html(navigator.platform);
+
+                //IP信息
+                $(".ip").html(returnCitySN["cip"]);
+                $(".city").html(returnCitySN["cname"]);
+                $(".idcard").html(returnCitySN["cid"]);
+
+                //main 面板切换
+                $("#mainMenu li").click(function (e) {
+                    $("#menuContent li.outer").hide();
+                    $("#" + $(this).attr("data") + ".outer").show();
+                    $("#mainMenu li").removeClass("active");
+                    $(this).addClass("active");
+                });
+
+                //聊天面板窗口控制
+                var chatOffsetWidth = document.getElementById("main").offsetWidth;
+                var chatOffsetHeight = document.getElementById("main").offsetHeight;
+
+                var inputWordOffsetWidth = document.getElementById("inputWord").offsetWidth;
+                var inputWordOffsetHeight = document.getElementById("inputWord").offsetHeight;
+
+
+                $("#chatList").css("height", chatOffsetHeight - 25 - inputWordOffsetHeight);
+                //输入框
+                $("#inputWord textarea").focus();
+                $("#inputWord textarea").blur();
+
+                /*********************************************************************************
+                 *                               websocket 连接服务器
+                 *********************************************************************************/
+
+                var data_count = 0;
+                var data_num = 20;//每页20条数据
+                if ("WebSocket" in window) {
+
+                    //serverUrl
+                    let socketUrl = '';
+                    //保存websocket对象
+                    let socket;
+                    // reConnect函数节流标识符
+                    let flag = true;
+
+                    //心跳机制
+                    let heart = {
+                        timeOut:5000,
+                        timeObj:null,
+                        serverTimeObj:null,
+                        start:function(){
+                            console.log('start');
+                            let self = this;
+                            //清除延时器
+                            this.timeObj && clearTimeout(this.timeObj);
+                            this.serverTimeObj && clearTimeout(this.serverTimeObj);
+                            this.timeObj = setTimeout(function(){
+
+                                socket.send(JSON.stringify({
+                                    uri: "websocket/" + "users/heartbeat",
+                                    data: "heartbeat",
+                                    account:sessionStorage.getItem("loginAccount"),
+                                    loginId:sessionStorage.getItem("loginId"),
+                                    start:0,
+                                    count:0,
+                                    code:110//1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭 110客户端心跳
+                                }));
+
+                                //定义一个延时器等待服务器响应，若超时，则关闭连接，重新请求server建立socket连接
+                                self.serverTimeObj=setTimeout(function(){
+                                    socket.close();
+                                    reConnect(socketUrl);
+                                },self.timeOut)
+                            },this.timeOut)
+                        }
+                    }
+                    //建立websocket连接函数
+                    function createWebsocket(url) {
+                        try {
+                            socket = new WebSocket(url);
+                            init();
+                        } catch (e) {
+                            //进行重连;
+                            console.log('websocket连接错误');
+                            reConnect(socketUrl);
+                        }
+                    }
+                    //对WebSocket各种事件进行监听
+                    function init() {
+                        socket.onopen = function () {
+                            //连接已经打开
+                            //重置心跳机制
+
+                            heart.start();
+
+                            socket.send(JSON.stringify({
+                                uri: "websocket/" + "users/recent",
+                                data: "recentTalk",
+                                account:sessionStorage.getItem("loginAccount"),
+                                loginId:sessionStorage.getItem("loginId"),
+                                start:1,
+                                count:20,
+                                code:2//1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                            }));
+
+                            $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket Server connection successful!</span>");
+                        }
+                        socket.onmessage = function (event) {
+                            //通过event.data获取server发送的信息
+                            //对数据进行操作
+                            var received_msg = JSON.parse(event.data);
+
+                            var color = Math.ceil(Math.random()*colors.length)-1;
+                            //1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                            if (received_msg.code==3){
+                                $("#chatList ul").append(function (index, vlaue) {
+                                    return '<li><span class="userName" style="color:'+colors[color]+'">['+received_msg.account+' SAY][' + dateFormat("H:M:S", new Date()) + ']</span><span class="userWord">' + marked(received_msg.data) + '</span></li>';
+                                })
+
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket client got a "+received_msg.account+" message!</span>");
+                                $("#chatList").scrollTop($("#chatList")[0].scrollHeight);
+
+                            } else if (received_msg.code==2) {//会话往后插入
+                                //最新的聊天记录
+                                //a.loginId,a.word,a.time.b.login
+                                var recent_data = JSON.parse(received_msg.data);
+
+                                data_count = recent_data.count;//总记录
+                                recent_data = recent_data.data;
+
+                                var recent_talk = "";
+                                for (var item in recent_data){
+
+                                    recent_talk+='<li><span class="userName" style="color: yellow">['+recent_data[item].login+' SAY][' + timestampToTime(recent_data[item].time) + ']</span><span class="userWord">' + marked(recent_data[item].word) + '</span></li>';
+
+                                }
+                                $(recent_talk).prependTo($("#chatList ul"));
+
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>加载最近的会话消息</span>");
+                                $("#chatList").scrollTop($("#chatList")[0].scrollHeight);
+
+                            }else if (received_msg.code==403) {
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>有个吊毛进聊天室了</span>");
+                            }else if (received_msg.code==402) {
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>服务器睡觉了</span>");
+                            }else if (received_msg.code==404) {
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>有个吊毛滚了</span>");
+                            }else if (received_msg.code==9) {
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>完蛋，你都没有登录【github可能墙住了再重新刷新登录吧】</span>");
+                            }
+
+
+                            //收到消息表示连接正常，所以重置心跳机制
+                            heart.start();
+                        }
+                        socket.onerror = function () {
+                            //报错+重连
+                            console.log('socket连接出错');
+                            $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket server occurs error!</span>");
+                            reConnect(socketUrl);
+                        }
+                        socket.onclose = function () {
+                            console.log('socket连接关闭');
+                            $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket server is shutdowned!</span>");
+                        }
+                    }
+
+                    //重连函数
+                    //因为重连函数会被socket事件频繁触发，所以通过函数节流限制重连请求发送
+                    function reConnect(url) {
+                        if (!flag) {
+                            return;
+                        }
+                        flag = false;
+                        setTimeout(function () {
+                            createWebsocket(url);
+                            flag = true;
+                        }, 3000)
+                    }
+
+                    /********************************member list**************************/
+                    ajax({
+                        method:'POST',
+                        uri:"api/users/list",
+                        success:function (response) {
+
+                            var recent_data = JSON.parse(response.message);
+                            recent_data = recent_data.data;
+                            var users = "";
+                            for (var item in recent_data){
+                                users+='<li>\n' +
+                                    '                    <div class="headUrl" title="'+recent_data[item].login+'">\n' +
+                                    '                        <img style="width: 80px;height: 80px" src="'+recent_data[item].avatar_url+'"/>\n' +
+                                    '                    </div>\n' +
+                                    '                    <div class="nickname">'+recent_data[item].login+'</div>\n' +
+                                    '                </li>';
+
+                            }
+                            $(users).prependTo($("#friends"));
+                            $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>用户列表加载完毕!</span>");
+                        },
+                        error:function (error) {
+                            //alert("error");
+                        }
+                    });
+                   createWebsocket(socketUrl);
+
+                    // // 打开一个 web socket
+                    // var ws = new WebSocket("ws://123.56.12.53:2347/index");
+                    //
+                    // var flag = 0;
+                    // ws.onopen = function () {
+                    //     // Web Socket 已连接上，使用 send() 方法发送数据
+                    //     ws.send(JSON.stringify({
+                    //         uri: "websocket/" + "users/recent",
+                    //         data: "recentTalk",
+                    //         account:sessionStorage.getItem("loginAccount"),
+                    //         loginId:sessionStorage.getItem("loginId"),
+                    //         start:1,
+                    //         count:20,
+                    //         code:2//1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                    //     }));
+                    //     //ws.send(sendPrepareMsg("users/recent", {"word":"getRecentTalk","start":1,"count":20,"code":2}));
+                    //     $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket Server connection successful!</span>");
+                    // };
+                    //
+                    // ws.onmessage = function (evt) {
+                    //     var received_msg = JSON.parse(evt.data);
+                    //
+                    //     var color = Math.ceil(Math.random()*colors.length)-1;
+                    //     //1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                    //     if (received_msg.code==3){
+                    //         $("#chatList ul").append(function (index, vlaue) {
+                    //             return '<li><span class="userName" style="color:'+colors[color]+'">['+received_msg.account+' SAY][' + dateFormat("H:M:S", new Date()) + ']</span><span class="userWord">' + marked(received_msg.data) + '</span></li>';
+                    //         })
+                    //
+                    //         $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket client got a "+received_msg.account+" message!</span>");
+                    //         $("#chatList").scrollTop($("#chatList")[0].scrollHeight);
+                    //
+                    //     } else if (received_msg.code==2) {//会话往后插入
+                    //         //最新的聊天记录
+                    //         //a.loginId,a.word,a.time.b.login
+                    //         var recent_data = JSON.parse(received_msg.data);
+                    //
+                    //         data_count = recent_data.count;//总记录
+                    //         recent_data = recent_data.data;
+                    //
+                    //         var recent_talk = "";
+                    //         for (var item in recent_data){
+                    //
+                    //             recent_talk+='<li><span class="userName" style="color: yellow">['+recent_data[item].login+' SAY][' + timestampToTime(recent_data[item].time) + ']</span><span class="userWord">' + marked(recent_data[item].word) + '</span></li>';
+                    //
+                    //         }
+                    //         $(recent_talk).prependTo($("#chatList ul"));
+                    //
+                    //         $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>加载最近的会话消息</span>");
+                    //         $("#chatList").scrollTop($("#chatList")[0].scrollHeight);
+                    //
+                    //     }else if (received_msg.code==403) {
+                    //         $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>有个吊毛进聊天室了</span>");
+                    //     }else if (received_msg.code==402) {
+                    //         $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>服务器睡觉了</span>");
+                    //     }else if (received_msg.code==404) {
+                    //         $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>有个吊毛滚了</span>");
+                    //     }
+                    //
+                    //
+                    // };
+                    //
+                    // ws.onclose = function () {
+                    //     flag = 0;
+                    //     $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket server is shutdowned!</span>");
+                    //
+                    // };
+                    // ws.onerror = function () {
+                    //     flag = 0;
+                    //     $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>websocket server occurs error!</span>");
+                    // }
+
+                    $("#inputWord textarea").keypress(function (e) {
+                        if (!e.shiftKey && e.keyCode === 13&&$(this).val().length>0&&$(this).val().length<10000) {
+                            //提交内容
+                            var content = sendPrepareMsg("users/talk", {"word":htmlspecialchars($(this).val()),"start":0,"count":10,"code":3});
+                            if (content!=-1&&content!=0&&socket.readyState==1){
+                                socket.send(content);
+                                $(this).val(" ");
+                            }else if (content==0) {
+                                $("#inputWord textarea").val("输入点东西啊，骚毛");
+                            }else{
+                                $("#inputWord textarea").val("没有用的，还没有连接好服务器，等伙...");
+                            }
+
+                        }
+                    })
+
+                    window.pageNum = 2;
+                    document.getElementById("chatList").onscroll = function(e){
+                        //计算一下页码
+                        var page = Math.ceil(data_count/data_num);
+                        if(document.getElementById("chatList").scrollTop==0){
+                            if (window.pageNum<page&&socket.readyState==1){
+                                socket.send(JSON.stringify({
+                                    uri: "websocket/" + "users/recent",
+                                    data: "recentTalk",
+                                    account:sessionStorage.getItem("loginAccount"),
+                                    loginId:sessionStorage.getItem("loginId"),
+                                    start:window.pageNum,
+                                    count:data_num,
+                                    code:2//1错误消息  2会话消息 3群聊消息 402服务器关闭了 403有客户端连接  404客户端关闭
+                                }));
+                                window.pageNum++;
+                            }else{
+                                $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>不用滚了没有了，吊毛</span>");
+                            }
+                        }
+                    }
+
+
+
+                } else {
+                    $("#bottom").html("[SYSTEM INFO]--<span style='color: greenyellow'>your os can't run!</span>");
+
+                }
+            }
+
+
+
+    });
+    window.onresize=function (e) {
+        var size = getSize();
+        $("#topPanel").css("height",size.height*0.9);
+        $("#left").css("height",size.height*0.9);
+        $("#main").css("height",size.height*0.9);
+        $("#right").css("height",size.height*0.9);
+        $("#bottom").css("height",size.height*0.1);
+    }
+
+
+</script>
+</body>
+</html>

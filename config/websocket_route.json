@@ -1,0 +1,4 @@
+[
+  {"controller": "users","action": "addUser"},
+  {"controller": "groups","action": "removeGroup"}
+]

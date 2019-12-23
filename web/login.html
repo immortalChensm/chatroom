@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <style>
+        body{
+            padding:0;
+            margin:0;
+            background: #05080D;
+        }
+        #container{
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: 3px;
+            width:700px;
+            padding: 20px;
+            border:1px solid #56696C;
+        }
+        #container {
+            color: greenyellow;
+            margin:2px 0px 0px 2px;
+        }
+        #container .info{
+            width:350px;
+        }
+        #container .info span{
+            color: brown;
+            float:right;
+            display: inline-block;
+        }
+        #container #login{
+            border:1px solid #607578;
+            background: #151C21;
+
+            height:50px;
+            width: 347px;
+            margin:10px 0px 10px 1px;
+        }
+        #container #loginWait{
+            border:1px solid #607578;
+            background: red;
+            height:150px;
+            width: 100%;
+            display: none;
+            text-align: center;
+            font-size: 35px;
+            padding: 3px;
+            color: whitesmoke;
+        }
+        #container #login a{
+            text-underline: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+            text-decoration: none;
+            text-underline-style: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 50px;
+            color:#A9CCCE;
+        }
+        #container #login a:hover{
+            background: #ABCFD1;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="info">Application name<span id="use">chatRoom</span></div>
+        <div class="info">author<span id="use">勺颠颠</span></div>
+        <div class="info">start  time<span id="starttime"></span></div>
+        <div class="info">your platform<span id="os"></span></div>
+        <div class="info">your ip <span id="ip"></span></div>
+        <div class="info">your address <span id="address"></span></div>
+        <div class="info">your location ID <span id="location"></span></div>
+        <div class="info">login method<span>[only github login]</span></div>
+        <div class="info">PS:<span>[手机打开迟早见鬼]</span></div>
+        <div id="login">
+            <a href="https://github.com/login/oauth/authorize?client_id=xxx&redirect_uri=http://ip"> GO LOGIN</a>
+        </div>
+        <div id="loginWait">
+            [login process may be spend just seconds,please wait app response]
+        </div>
+    </div>
+
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="js/common.js"></script>
+<script>
+    box("container");
+    window.onload=function (e) {
+        let date = new Date()
+        var start_time = document.getElementById("starttime");
+        start_time.innerHTML="[--"+dateFormat("Y-m-d H:M:S",date)+"]";
+        document.getElementById("os").innerHTML="[--"+navigator.platform+"]";
+        document.getElementById("ip").innerHTML="[--"+returnCitySN["cip"]+"]";
+        document.getElementById("address").innerHTML="[--"+returnCitySN["cname"]+"]";
+        document.getElementById("location").innerHTML="[--"+returnCitySN["cid"]+"]";
+        box("container");
+
+        document.getElementById("login").onclick=function (e) {
+            this.style.display="none";
+            document.getElementById("loginWait").style.display="block";
+        }
+
+    }
+    window.onresize=function (e) {
+        box("container");
+    }
+
+
+</script>
+</body>
+</html>

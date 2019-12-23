@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			background: black;
+			padding:0;
+			margin:0px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function WebSocketTest()
+		{
+			if ("WebSocket" in window)
+			{
+				alert("您的系统支持 WebSocket协议!");
+
+				// 打开一个 web socket
+				var ws = new WebSocket("ws://123.56.12.53:2347/index.php");
+				var flag=0;
+				ws.onopen = function()
+				{
+					// Web Socket 已连接上，使用 send() 方法发送数据
+					var json = {
+						uri:"websocket/users/login",
+						data:"hi,websocket"
+					};
+					ws.send(JSON.stringify(json));
+					//alert("数据发送中...");
+					var status = document.getElementById("status");
+					status.innerHTML="websocket 连接成功";
+				};
+
+				ws.onmessage = function (evt)
+				{
+					flag=1;
+					var received_msg = evt.data;
+					//alert("数据已接收...");
+					var status = document.getElementById("status");
+					var word = document.getElementById("word");
+					status.innerHTML="收到服务器的数据了";
+					word.innerHTML+="<div>"+received_msg+"</div>";
+				};
+
+				ws.onclose = function()
+				{
+					flag=0;
+					// 关闭 websocket
+					//alert("连接已关闭...");
+					var status = document.getElementById("status");
+					status.innerHTML="服务器关闭了";
+				};
+				ws.onerror=function () {
+					flag=0;
+				}
+				var content = document.getElementById("content");
+				content.blur();
+				content.focus();
+				content.onkeypress=function (e) {
+					if (e.keyCode==13&&flag){
+						ws.send(content.innerText.replace(/\s*/g,""));
+						content.innerText="";
+					}
+				}
+			}
+
+			else
+			{
+				// 浏览器不支持 WebSocket
+				alert("您的系统不支持 WebSocket!");
+			}
+		}
+	</script>
+
+</head>
+<body>
+<div>
+	<h3></h3>
+	<form>
+
+	</form>
+</div>
+</body>
+</html>

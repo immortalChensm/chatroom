@@ -1,0 +1,16 @@
+[
+  {
+    "method": "GET",
+    "router": [
+      {"uri":"/index","controller": "users@indexAction"},
+      {"uri":"/login","controller": "users@login"}
+    ]
+  },
+  {
+    "method": "POST",
+    "router": [
+      {"uri":"/index","controller": "users@index"},
+      {"uri":"/login","controller": "users@login"}
+    ]
+  }
+]

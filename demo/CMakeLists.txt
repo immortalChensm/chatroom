@@ -1,0 +1,5 @@
+project(chat)
+set(CMAKE_C_FLAGS "-std=c99")
+add_subdirectory(facio)
+add_executable(chat websocket.c)
+target_link_libraries(chat facil.io)

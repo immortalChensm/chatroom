@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="chat"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\facio\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="E:/c/chat/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="chat">
+				<Option output="E:/c/chat/cmake-build-debug/chat.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/c/chat/facio/lib"/>
+					<Add directory="E:/c/chat/facio/lib/facil"/>
+					<Add directory="E:/c/chat/facio/lib/facil/tls"/>
+					<Add directory="E:/c/chat/facio/lib/facil/fiobj"/>
+					<Add directory="E:/c/chat/facio/lib/facil/cli"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http/parsers"/>
+					<Add directory="E:/c/chat/facio/lib/facil/redis"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/backward"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include-fixed"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 chat"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="chat/fast">
+				<Option output="E:/c/chat/cmake-build-debug/chat.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/c/chat/facio/lib"/>
+					<Add directory="E:/c/chat/facio/lib/facil"/>
+					<Add directory="E:/c/chat/facio/lib/facil/tls"/>
+					<Add directory="E:/c/chat/facio/lib/facil/fiobj"/>
+					<Add directory="E:/c/chat/facio/lib/facil/cli"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http/parsers"/>
+					<Add directory="E:/c/chat/facio/lib/facil/redis"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/backward"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include-fixed"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 chat/fast"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="E:/c/chat/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="E:/c/chat/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="facil.io">
+				<Option output="E:/c/chat/cmake-build-debug/facio/libfacil.io.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/c/chat/cmake-build-debug/facio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/c/chat/facio/lib"/>
+					<Add directory="E:/c/chat/facio/lib/facil"/>
+					<Add directory="E:/c/chat/facio/lib/facil/tls"/>
+					<Add directory="E:/c/chat/facio/lib/facil/fiobj"/>
+					<Add directory="E:/c/chat/facio/lib/facil/cli"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http/parsers"/>
+					<Add directory="E:/c/chat/facio/lib/facil/redis"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/backward"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include-fixed"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 facil.io"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="facil.io/fast">
+				<Option output="E:/c/chat/cmake-build-debug/facio/libfacil.io.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/c/chat/cmake-build-debug/facio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/c/chat/facio/lib"/>
+					<Add directory="E:/c/chat/facio/lib/facil"/>
+					<Add directory="E:/c/chat/facio/lib/facil/tls"/>
+					<Add directory="E:/c/chat/facio/lib/facil/fiobj"/>
+					<Add directory="E:/c/chat/facio/lib/facil/cli"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http"/>
+					<Add directory="E:/c/chat/facio/lib/facil/http/parsers"/>
+					<Add directory="E:/c/chat/facio/lib/facil/redis"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++/backward"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../include"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/include-fixed"/>
+					<Add directory="C:/TDM-GCC-64/bin/../lib/gcc/x86_64-w64-mingw32/5.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 facil.io/fast"/>
+					<CompileFile command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/TDM-GCC-64/bin/mingw32-make.exe -f &quot;E:/c/chat/cmake-build-debug/facio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="E:/c/chat/facio/lib/facil/cli/fio_cli.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/cli/fio_cli.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fio.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fio.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fio_siphash.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fio_siphash.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_ary.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_ary.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_data.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_data.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_hash.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_hash.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_json.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_json.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_mustache.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_mustache.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_numbers.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_numbers.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_str.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobj_str.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobject.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/fiobj/fiobject.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http1.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http1.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http_internal.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/http_internal.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/parsers/http1_parser.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/parsers/http1_parser.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/websockets.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/http/websockets.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/redis/redis_engine.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/redis/redis_engine.h">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/tls/fio_tls_missing.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/lib/facil/tls/fio_tls_openssl.c">
+			<Option target="facil.io"/>
+		</Unit>
+		<Unit filename="E:/c/chat/start.c">
+			<Option target="chat"/>
+		</Unit>
+		<Unit filename="E:/c/chat/vendor/json/cJSON.c">
+			<Option target="chat"/>
+		</Unit>
+		<Unit filename="E:/c/chat/vendor/json/cJSON.h">
+			<Option target="chat"/>
+		</Unit>
+		<Unit filename="E:/c/chat/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="E:/c/chat/facio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\facio\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
